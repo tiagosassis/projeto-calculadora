@@ -42,6 +42,7 @@ body{
     border-radius: 10px;
     padding: 15px;
     display: flex;
+    flex: 0 0 auto;
     flex-flow: row wrap;
 }
 
@@ -58,6 +59,7 @@ fieldset{
     display: flex;
     flex-flow: row wrap;
     align-content: flex-end;
+    flex: 0 0 auto;
     height: 100%;
     width: 100%;
     border: 1px solid var(--number-button-color);
@@ -66,7 +68,8 @@ fieldset{
 }
 
 label#display{
-
+    max-width: 280px;
+    word-wrap: break-word;
     flex: 0 0 280px;
     font-size: 2.5em;
     padding: 40px 10px;
