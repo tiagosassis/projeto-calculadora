@@ -71,12 +71,19 @@ fieldset{
     padding: 1px;
 }
 
-label#display{
-    max-width: 280px;
+div#display{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch;
+}
+
+label{
+    width: 288px;
     word-wrap: break-word;
-    flex: 0 0 280px;
+    height: 82px;
+    flex: 0 0 auto;
     font-size: 2.5em;
-    padding: 40px 10px;
+    padding: 20px 10px;
     text-align: right;
 }
 
