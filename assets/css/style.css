@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+:root{
+    --text-color: #fff;
+    --background-color: #1e1e1e;
+    --result-button-color: #4cc2ff;
+    --result-button-hover-color: #43abdf;
+    --result-button-clicked-color: #317a9e;
+    --number-button-color: #3b3b3b;
+    --function-button-color: #323232;
+    --number-button-clicked-color: #272727;
+    --border-color: rgba(59, 59, 59, 0.5);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.flex-container{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculadora{
+    background-color: var(--background-color);
+    height: 480px;
+    width: 322px;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+legend{
+    border-radius: 7px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    border: 1px solid var(--number-button-color);
+
+}
+
+fieldset{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-end;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--number-button-color);
+    border-radius: 7px;
+    padding: 1px;
+}
+
+label#display{
+
+    flex: 0 0 280px;
+    font-size: 2.5em;
+    padding: 40px 10px;
+    text-align: right;
+}
+
+input, button{
+    height: 50px;
+    width: 70px;
+    margin: 1px;
+
+
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+}
+
+button.function-button{
+    background-color: var(--function-button-color);
+}
+
+button.function-button:hover{
+    background-color: var(--number-button-color);
+}
+
+button.function-button:active{
+    background-color: var(--function-button-color);
+}
+
+
+
+button.number-button{
+    background-color: var(--number-button-color);
+}
+
+button.number-button:hover{
+    background-color: var(--function-button-color);
+}
+
+button.number-button:active{
+    background-color: var(--number-button-clicked-color);
+}
+
+
+
+button#result-button{
+    background-color: var(--result-button-color);
+    color: var(--background-color);
+}
+
+button#result-button:hover{
+    background-color: var(--result-button-hover-color);
+}
+
+button#result-button:active{
+    background-color: var(--result-button-clicked-color);
+}
