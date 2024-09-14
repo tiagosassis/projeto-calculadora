@@ -2,6 +2,8 @@
 
 :root{
     --text-color: #fff;
+    --gradient-background-color1: #212830;
+    --gradient-background-color2: #151B23;
     --background-color: #1e1e1e;
     --result-button-color: #4cc2ff;
     --result-button-hover-color: #43abdf;
@@ -23,6 +25,7 @@
 body{
     height: 100vh;
     width: 100vw;
+    background-image: linear-gradient(to right, var(--gradient-background-color1), var(--gradient-background-color2));
 }
 
 .flex-container{
@@ -38,12 +41,13 @@ body{
 #calculadora{
     background-color: var(--background-color);
     height: 480px;
-    width: 322px;
+    width: 324px;
     border-radius: 10px;
     padding: 15px;
     display: flex;
     flex: 0 0 auto;
     flex-flow: row wrap;
+    border: 1px solid white;
 }
 
 legend{
@@ -76,7 +80,7 @@ label#display{
     text-align: right;
 }
 
-input, button{
+button{
     height: 50px;
     width: 70px;
     margin: 1px;
