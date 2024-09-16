@@ -26,8 +26,7 @@
 
 .dark-mode:root{
     --text-color: #fff;
-    --gradient-background-color1: #212830;
-    --gradient-background-color2: #151B23;
+    --external-background-color: #212B34;
     --background-color: #1e1e1e;
 
     --number-button-color: #3b3b3b;
@@ -65,7 +64,8 @@
 body{
     height: 100vh;
     width: 100vw;
-    background-image: linear-gradient(to right, var(--gradient-background-color1), var(--gradient-background-color2));
+    background-color: #212B34;
+    background-color: var(--external-background-color);
 }
 
 .flex-container{
@@ -175,14 +175,6 @@ button.number-button{
     }
 }
 
-button > span#dark-mode{
-    display: block;
-}
-
-button > span#light-mode{
-    display: none;
-}
-
 button.result-button{
     background-color: var(--result-button-color);
     color: var(--background-color);
@@ -202,16 +194,10 @@ button.result-button{
     100% { scale: 1; }
 }
 
+button > span#dark-mode{
+    display: block;
+}
 
-.caixa {
-    background-color:lightGreen;
-    width:100px;
-    height:100px;
-    margin: 10px;
-  }
-  
-  @keyframes deslizar{
-    0%   { margin-left: 0px; }
-    50%  { margin-left: 200px; background-color: blue;}
-    100% { margin-left: 0px; }
-  }
+button > span#light-mode{
+    display: none;
+}
