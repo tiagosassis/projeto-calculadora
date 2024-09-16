@@ -1,20 +1,60 @@
 @charset "utf-8";
 
 :root{
+    --text-color: black;
+    --gradient-background-color1: #F7F7F7;
+    --gradient-background-color2: #F7F7F7;
+    --background-color: #F7F7F7;
+
+    --number-button-color: #fff;
+    --number-button-hover-color: #eeeeee;
+    --number-button-clicked-color: #dfdfdf;
+
+    --function-button-color: #fff;
+    --function-button-hover-color: #eeeeee;
+    --function-button-clicked-color: #dfdfdf;
+
+    --result-button-color: #FF8515;
+    --result-button-hover-color: #ec7d14;
+    --result-button-clicked-color: #ec7d14;
+
+    --function-button-color: #fff;
+
+    --border-color: rgba(59, 59, 59, 0.5);
+    --calculator-border-color: black;
+}
+
+.dark-mode:root{
     --text-color: #fff;
     --gradient-background-color1: #212830;
     --gradient-background-color2: #151B23;
     --background-color: #1e1e1e;
+
+    --number-button-color: #3b3b3b;
+    --number-button-hover-color: #323232;
+    --number-button-clicked-color: #272727;
+
+    --function-button-color: #323232;
+    --function-button-hover-color: #3b3b3b;
+    --function-button-clicked-color: #323232;
+
     --result-button-color: #4cc2ff;
     --result-button-hover-color: #43abdf;
     --result-button-clicked-color: #317a9e;
-    --number-button-color: #3b3b3b;
-    --function-button-color: #323232;
-    --number-button-clicked-color: #272727;
+
     --border-color: rgba(59, 59, 59, 0.5);
+    --calculator-border-color: #fff;
+
+    button > span#light-mode{
+        display: block;
+    }
+    button > span#dark-mode{
+        display: none;
+    }
 }
 
 *{
+    font-weight: 600;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -39,24 +79,15 @@ body{
 }
 
 #calculadora{
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+
     background-color: var(--background-color);
     height: 500px;
     width: 324px;
     border-radius: 10px;
     padding: 15px;
-    display: flex;
-    flex: 0 0 auto;
-    flex-flow: row wrap;
-    border: 1px solid white;
-}
-
-legend{
-    border-radius: 7px;
-    text-align: center;
-    padding: 10px;
-    font-weight: 600;
-    border: 1px solid var(--number-button-color);
-
 }
 
 fieldset{
@@ -66,9 +97,18 @@ fieldset{
     flex: 0 0 auto;
     height: 100%;
     width: 100%;
-    border: 1px solid var(--number-button-color);
+    border: 1px solid var(--calculator-border-color);
     border-radius: 7px;
     padding: 1px;
+}
+
+legend{
+    border-radius: 7px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    border: 1px solid var(--calculator-border-color);
+
 }
 
 div#display{
@@ -82,61 +122,96 @@ label{
     word-wrap: break-word;
     height: 82px;
     flex: 0 0 auto;
-    font-size: 2em;
-    padding: 5px;
+    font-size: 2.8em;
+    line-height: 1.75em;
+    padding: 0px 10px;
     text-align: right;
-    border: 1px solid transparent;
+    border: 1px dotted transparent;
+    transition: .5s;
+}
+
+label#result-label{
+    font-size: 1.5em;
+    line-height: 3.2em;
 }
 
 button{
+    flex: 0 0 auto;
     height: 50px;
     width: 70px;
     margin: 1px;
-
 
     font-size: 1em;
     border-radius: 5px;
     border: none;
     box-shadow: none;
+
+    transition: .3s;
+    animation-name: ResizeButton;
+    
 }
 
 button.function-button{
     background-color: var(--function-button-color);
+
+    &:hover{
+        background-color: var(--function-button-hover-color);
+    }
+
+    &:active{
+        background-color: var(--function-button-clicked-color);
+    }
 }
-
-button.function-button:hover{
-    background-color: var(--number-button-color);
-}
-
-button.function-button:active{
-    background-color: var(--function-button-color);
-}
-
-
 
 button.number-button{
     background-color: var(--number-button-color);
+
+    &:hover{
+        background-color: var(--number-button-hover-color);
+    }
+
+    &:active{
+        background-color: var(--number-button-clicked-color);
+    }
 }
 
-button.number-button:hover{
-    background-color: var(--function-button-color);
+button > span#dark-mode{
+    display: block;
 }
 
-button.number-button:active{
-    background-color: var(--number-button-clicked-color);
+button > span#light-mode{
+    display: none;
 }
 
-
-
-button#result-button{
+button.result-button{
     background-color: var(--result-button-color);
     color: var(--background-color);
+
+    &:hover{
+        background-color: var(--result-button-hover-color);
+    }
+
+    &:active{
+        background-color: var(--result-button-clicked-color);
+    }
 }
 
-button#result-button:hover{
-    background-color: var(--result-button-hover-color);
+@keyframes ResizeButtonAnimation {
+    0%   { scale: 1; }
+    50%  { scale: .8; }
+    100% { scale: 1; }
 }
 
-button#result-button:active{
-    background-color: var(--result-button-clicked-color);
-}
+
+.caixa {
+    background-color:lightGreen;
+    width:100px;
+    height:100px;
+    margin: 10px;
+  }
+  
+  @keyframes deslizar{
+    0%   { margin-left: 0px; }
+    50%  { margin-left: 200px; background-color: blue;}
+    100% { margin-left: 0px; }
+  }
