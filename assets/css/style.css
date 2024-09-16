@@ -40,7 +40,7 @@ body{
 
 #calculadora{
     background-color: var(--background-color);
-    height: 480px;
+    height: 500px;
     width: 324px;
     border-radius: 10px;
     padding: 15px;
@@ -82,9 +82,10 @@ label{
     word-wrap: break-word;
     height: 82px;
     flex: 0 0 auto;
-    font-size: 2.5em;
-    padding: 20px 10px;
+    font-size: 2em;
+    padding: 5px;
     text-align: right;
+    border: 1px solid transparent;
 }
 
 button{
