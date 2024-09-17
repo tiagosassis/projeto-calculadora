@@ -1,0 +1,5 @@
+@keyframes ResizeButtonAnimation {
+    0%   { scale: 1; }
+    50%  { scale: .8; }
+    100% { scale: 1; }
+}

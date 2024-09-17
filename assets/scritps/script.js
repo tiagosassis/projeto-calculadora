@@ -8,7 +8,7 @@ function Clear() {
     result.style.fontSize = "1.5em";
     result.style.lineHeight = "3.2em";
     input.style.fontSize = "2.8em";
-    input.style.lineHeight = "1.75em";
+    input.style.lineHeight = "1.5em";
     
     /*Quando o resultado é solicitado, isso altera os valores padrões de fontSize e fontHeight tanto do label de resultado,
     quanto do label de input, essa função alem de limpar ambos, também volta os valores ao padrão*/
@@ -58,17 +58,17 @@ function Result() {
 
 function ResizeFontAndLine() {
     // Ao solicitar o resultado, o tamanho e posicionamento das fontes serão alterados
-    var input = document.getElementById('input-label');
-    var result = document.getElementById('result-label');
+    let input = document.getElementById('input-label');
+    let result = document.getElementById('result-label');
 
     result.style.fontSize = "2.8em";
-    result.style.lineHeight = "1em";
+    result.style.lineHeight = "1.5em";
 
     input.style.fontSize = "1.5em";
-    input.style.lineHeight = "3em";
+    input.style.lineHeight = "3.2em";
 }
 
-document.getElementById('calculadora').addEventListener('click', Animation);
+document.getElementById('calculator').addEventListener('click', Animation);
 
 function Animation(evt) {
     let animationTarget = evt.target;
@@ -90,9 +90,7 @@ function Animation(evt) {
     }
 }
 
-const $html = document.querySelector('html');
-const $button = document.getElementById('mode');
-
-$button.addEventListener('click', ()=>{
-    $html.classList.toggle('dark-mode');
+document.getElementById('mode').addEventListener('click', ()=>{
+    document.querySelector('html').classList.toggle('dark-mode');
+    // função para alternar entre light mode e dark mode
 })

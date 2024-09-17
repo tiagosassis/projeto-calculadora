@@ -1,0 +1,37 @@
+.dark-mode:root{
+    --text-color: #fff;
+    --external-background-color: #212B34;
+    --internal-background-color: #1e1e1e;
+
+    --number-button-color: #3b3b3b;
+    --number-button-hover-color: #323232;
+    --number-button-clicked-color: #272727;
+
+    --function-button-color: #323232;
+    --function-button-text-color: white;
+    --function-button-hover-color: #3b3b3b;
+    --function-button-clicked-color: #323232;
+
+    --result-button-color: #4cc2ff;
+    --result-button-hover-color: #43abdf;
+    --result-button-clicked-color: #317a9e;
+
+    --border-color: rgba(59, 59, 59, 0.5);
+    --calculator-internal-border-color: #fff;
+    --calculator-external-border-color: transparent;
+
+    button > span#light-mode{
+        display: block;
+    }
+    button > span#dark-mode{
+        display: none;
+    }
+}
+
+button > span#dark-mode{
+    display: block;
+}
+
+button > span#light-mode{
+    display: none;
+}
