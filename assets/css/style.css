@@ -11,6 +11,7 @@
     --number-button-clicked-color: #dfdfdf;
 
     --function-button-color: #fff;
+    --function-button-text-color: #FF8515;
     --function-button-hover-color: #eeeeee;
     --function-button-clicked-color: #dfdfdf;
 
@@ -21,7 +22,8 @@
     --function-button-color: #fff;
 
     --border-color: rgba(59, 59, 59, 0.5);
-    --calculator-border-color: black;
+    --calculator-internal-border-color: black;
+    --calculator-external-border-color: black;
 }
 
 .dark-mode:root{
@@ -34,6 +36,7 @@
     --number-button-clicked-color: #272727;
 
     --function-button-color: #323232;
+    --function-button-text-color: white;
     --function-button-hover-color: #3b3b3b;
     --function-button-clicked-color: #323232;
 
@@ -42,7 +45,8 @@
     --result-button-clicked-color: #317a9e;
 
     --border-color: rgba(59, 59, 59, 0.5);
-    --calculator-border-color: #fff;
+    --calculator-internal-border-color: #fff;
+    --calculator-external-border-color: transparent;
 
     button > span#light-mode{
         display: block;
@@ -53,7 +57,7 @@
 }
 
 *{
-    font-weight: 600;
+    font-weight: 500;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -82,12 +86,14 @@ body{
     display: flex;
     flex: 0 0 auto;
     flex-flow: row wrap;
-
-    background-color: var(--background-color);
     height: 500px;
     width: 324px;
+
+    background-color: var(--background-color);
+    border: 1px solid var(--calculator-external-border-color);
     border-radius: 10px;
     padding: 15px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
 fieldset{
@@ -97,7 +103,7 @@ fieldset{
     flex: 0 0 auto;
     height: 100%;
     width: 100%;
-    border: 1px solid var(--calculator-border-color);
+    border: 1px solid var(--calculator-internal-border-color);
     border-radius: 7px;
     padding: 1px;
 }
@@ -107,7 +113,7 @@ legend{
     text-align: center;
     padding: 10px;
     font-weight: 600;
-    border: 1px solid var(--calculator-border-color);
+    border: 1px solid var(--calculator-internal-border-color);
 
 }
 
@@ -141,7 +147,7 @@ button{
     width: 70px;
     margin: 1px;
 
-    font-size: 1em;
+    font-size: 1.5em;
     border-radius: 5px;
     border: none;
     box-shadow: none;
@@ -153,6 +159,7 @@ button{
 
 button.function-button{
     background-color: var(--function-button-color);
+    color: var(--function-button-text-color);
 
     &:hover{
         background-color: var(--function-button-hover-color);
@@ -175,7 +182,7 @@ button.number-button{
     }
 }
 
-button.result-button{
+button#result-button{
     background-color: var(--result-button-color);
     color: var(--background-color);
 
@@ -194,10 +201,18 @@ button.result-button{
     100% { scale: 1; }
 }
 
+button > span{
+    color: var(--function-button-text-color);
+}
+
 button > span#dark-mode{
     display: block;
 }
 
 button > span#light-mode{
     display: none;
+}
+
+#denary{
+    color: var(--text-color); 
 }

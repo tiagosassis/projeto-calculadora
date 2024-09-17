@@ -19,8 +19,8 @@
                 </div>
 
                 <button type="button" onclick="Clear()" class="function-button">C</button>
-                <button type="button" onclick="BackSpace()" class="function-button">
-                    <span class="material-symbols-outlined">
+                <button type="button" onclick="BackSpace()" class="function-button" id="backspace">
+                    <span class="material-symbols-outlined" id="backspace-icon">
                         backspace
                     </span>
                 </button>
@@ -50,9 +50,9 @@
                         dark_mode
                     </span>
                 </button>
-                <button type="button" onclick="Insert('.')" class="function-button" >,</button>
                 <button type="button" onclick="Insert('0')" class="number-button" >0</button>
-                <button type="button" onclick="ResizeFontAndLine()" class="function-button"  class="result-button">=</button>
+                <button type="button" onclick="Insert('.')" class="function-button" id="denary">,</button>
+                <button type="button" onclick="ResizeFontAndLine()" class="function-button"  id="result-button">=</button>
             </fieldset>
         </div>
     </main>

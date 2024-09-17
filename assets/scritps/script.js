@@ -1,39 +1,41 @@
 function Clear() {
-    var input = document.getElementById('input-label');
-    var result = document.getElementById('result-label');
+    let input = document.getElementById('input-label');
+    let result = document.getElementById('result-label');
+
+    document.getElementById('input-label').innerHTML = "";
+    document.getElementById('result-label').innerHTML = "0";
 
     result.style.fontSize = "1.5em";
     result.style.lineHeight = "3.2em";
-
     input.style.fontSize = "2.8em";
     input.style.lineHeight = "1.75em";
     
-    document.getElementById('input-label').innerHTML = "";
-    document.getElementById('result-label').innerHTML = "0";
+    /*Quando o resultado é solicitado, isso altera os valores padrões de fontSize e fontHeight tanto do label de resultado,
+    quanto do label de input, essa função alem de limpar ambos, também volta os valores ao padrão*/
 }
 
 function Insert(num) {
-    var calculation = document.getElementById('input-label').innerHTML;
-    if(calculation == 0){
+    let input = document.getElementById('input-label').innerHTML;
+    if(input == 0){
         document.getElementById('input-label').innerHTML = num;
     }
     else{
-        if(calculation.length == 10 || calculation.length + num.length > 10){
+        if(input.length == 10 || input.length + num.length > 10){
             return; // limitação de caracteres para evitar overflow no label
         }
-        document.getElementById('input-label').innerHTML = calculation + num;
+        document.getElementById('input-label').innerHTML = input + num;
     }
     
 }
 
 function BackSpace(){
-    var calculation = document.getElementById('input-label').innerHTML;
-    if(!(calculation == '0' || calculation == '')){
-        if(calculation.length == 1){
+    let input = document.getElementById('input-label').innerHTML;
+    if(!(input == '0' || input == '')){
+        if(input.length == 1){
             document.getElementById('input-label').innerHTML = 0;
         }
         else{
-            document.getElementById('input-label').innerHTML = calculation.substring(0, calculation.length - 1);
+            document.getElementById('input-label').innerHTML = input.substring(0, input.length - 1);
         }
     }
     else{
@@ -42,10 +44,11 @@ function BackSpace(){
 }
 
 function Result() {
-    var result = document.getElementById('input-label').innerHTML;
+    let input = document.getElementById('input-label').innerHTML;
+    let result;
 
-    if(result.length > 0 ){
-        result = '= ' + eval(result);
+    if(input.length > 0 ){
+        result = '= ' + eval(input);
         if(result.length > 11){
             result = result.substring(0, 11); // limitação de caracteres para evitar overflow no label
         }
@@ -65,13 +68,27 @@ function ResizeFontAndLine() {
     input.style.lineHeight = "3em";
 }
 
-const resultado = document.getElementById('calculadora');
+document.getElementById('calculadora').addEventListener('click', Animation);
 
-resultado.addEventListener('click', (evt)=>{
-    const alvo = evt.target;
-    alvo.style.animation = "";
-    setTimeout(() => alvo.style.animation = "ResizeButtonAnimation .1s linear");
-})
+function Animation(evt) {
+    let animationTarget = evt.target;
+    if(evt.target.localName == 'button'){
+        animationTarget.style.animation = "";
+        setTimeout(() => animationTarget.style.animation = "ResizeButtonAnimation .1s linear");
+    }
+    if(evt.target.localName == 'span'){
+        if(evt.target.id == 'dark-mode' || evt.target.id == 'light-mode'){
+            animationTarget = document.getElementById('mode');
+            animationTarget.style.animation = "";
+            setTimeout(() => animationTarget.style.animation = "ResizeButtonAnimation .1s linear");
+        }
+        if(evt.target.id == 'backspace-icon'){
+            animationTarget = document.getElementById('backspace');
+            animationTarget.style.animation = "";
+            setTimeout(() => animationTarget.style.animation = "ResizeButtonAnimation .1s linear");
+        }
+    }
+}
 
 const $html = document.querySelector('html');
 const $button = document.getElementById('mode');
