@@ -1,3 +1,17 @@
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if(isDarkMode){
+    DarkMode();
+}
+
+// Event Listeners
+
+document.getElementById('calculator').addEventListener('click', Animation);
+
+document.getElementById('mode').addEventListener('click', DarkMode);
+
+// Functions
+
 function Clear() {
     let input = document.getElementById('input-label');
     let result = document.getElementById('result-label');
@@ -68,8 +82,6 @@ function ResizeFontAndLine() {
     input.style.lineHeight = "3.2em";
 }
 
-document.getElementById('calculator').addEventListener('click', Animation);
-
 function Animation(evt) {
     let animationTarget = evt.target;
     if(evt.target.localName == 'button'){
@@ -90,7 +102,8 @@ function Animation(evt) {
     }
 }
 
-document.getElementById('mode').addEventListener('click', ()=>{
+function DarkMode() {
     document.querySelector('html').classList.toggle('dark-mode');
-    // função para alternar entre light mode e dark mode
-})
+    // ativa e desativa dark mode
+}
+
