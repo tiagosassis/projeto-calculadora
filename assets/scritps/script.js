@@ -83,6 +83,11 @@ function ResizeFontAndLine() {
 }
 
 function Animation(evt) {
+    /*
+        O event listener foi adicionado a calculadora por meio de seu ID, porém para evitar que qualquer elemento
+        receba a animação, apenas os buttons e spans tem o click detectado, no caso do span, o click é detectado
+        poréma a animação deve ser aplicada no button e não no span, pois o span está la apenas para inserir o icone
+    */
     let animationTarget = evt.target;
     if(evt.target.localName == 'button'){
         animationTarget.style.animation = "";
